@@ -1,20 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import 'react-native-gesture-handler';
+import { createStackNavigator } from '@react-navigation/stack';
+const Stack = createStackNavigator();
+import BookScreen from './src/pages/Books';
+import CartScreen from './src/pages/Carts';
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+      <Stack.Screen name='Book' component={BookScreen}/>
+      <Stack.Screen name='Cart' component={CartScreen}/>
+
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
